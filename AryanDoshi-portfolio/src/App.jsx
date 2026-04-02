@@ -9,10 +9,12 @@ import Achievements from "./sections/Achievements"
 import Contact from "./sections/Contact"
 import Projects from "./sections/Projects"
 import ParticlesBackground from "./components/ParticlesBackground"
+import CustomCursor from "./components/CustomCursor"
 
 export default function App() {
   return(
     <div className="relative gradient text-white">
+      <CustomCursor></CustomCursor>
       <ParticlesBackground></ParticlesBackground>
       <Navbar/>
       <Home></Home>
