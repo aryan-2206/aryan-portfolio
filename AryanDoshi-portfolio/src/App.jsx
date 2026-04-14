@@ -13,6 +13,7 @@ import CustomCursor from "./components/CustomCursor"
 
 export default function App() {
   return(
+    // <div className="bg-black">
     <div className="relative gradient text-white">
       <CustomCursor></CustomCursor>
       <ParticlesBackground></ParticlesBackground>
