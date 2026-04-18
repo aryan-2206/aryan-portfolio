@@ -10,9 +10,18 @@ import Contact from "./sections/Contact"
 import Projects from "./sections/Projects"
 import ParticlesBackground from "./components/ParticlesBackground"
 import CustomCursor from "./components/CustomCursor"
+import IntroAnimations from "./components/IntroAnimations"
+import { useState } from "react"
 
 export default function App() {
-  return(
+
+  const [introFinished, setIntroFinished] = useState(false);
+
+  return (
+  <>
+    {!introFinished && <IntroAnimations onFinish={() => setIntroFinished(true)}></IntroAnimations>}
+    {introFinished && (
+
     // <div className="bg-black">
     <div className="relative gradient text-white">
       <CustomCursor></CustomCursor>
@@ -28,5 +37,7 @@ export default function App() {
       <Contact></Contact>
       <Footer></Footer>
     </div>
+    )}
+  </>
   )
 }
