@@ -2,6 +2,31 @@ import { useEffect, useMemo } from "react";
 import ParticlesBackground from "../components/ParticlesBackground";
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { FaLinkedin, FaGithub, FaEnvelope, FaInstagram } from "react-icons/fa";
+import { SiLeetcode, SiCodechef, SiCodeforces } from "react-icons/si";
+import avator from "../assets/avator.png"
+
+const socials = [
+  //linkedin, github, email, instagram ,leetcode, codechef, codeforces
+  {Icon : FaLinkedin, link: "https://www.linkedin.com/in/aryandoshi2206", label: "LinkedIn"},
+  {Icon : FaGithub, link: "https://www.github.com/aryan-2206", label: "GitHub"},
+  {Icon : FaEnvelope, link: "mailto:aryandoshi22@gmail.com", label: "Email"},
+  {Icon : FaInstagram, link: "https://www.instagram.com/aryandoshi_/", label: "Instagram"},
+  {Icon : SiLeetcode, link: "https://leetcode.com/aryandoshi_/", label: "LeetCode"},
+  {Icon : SiCodechef, link: "https://www.codechef.com/users/aryandoshi", label: "CodeChef"},
+  {Icon : SiCodeforces, link: "https://codeforces.com/profile/aryandoshi", label: "Codeforces"},
+]
+
+const glowVariants = {
+  initial: {scale:1, y:0, filter : "drop-shadow(0 0 10px rgba(0,0,0,0))"},
+  hover: {
+    scale:1.2, y: -3,
+    filter: "drop-shadow(0 0 8px rgba(213,88,204,0.9)) drop-shadow(0 0 18px rgba(16, 185, 129, 0.8))",
+    transition: {type: "spring", stiffness: 300, damping: 15}
+  },
+  tap: {scale : 0.95, y:0, transition: {duration: 0.08}}
+}
+
 
 export default function Home() {
 // typewriter effect
@@ -88,7 +113,68 @@ export default function Home() {
                 Aryan Doshi
               </span>
             </motion.h1>
+            <motion.p className="mt-6 text-base sm:text-lg md:text-xl text-gray-300 max-w-2xl mx-auto lg:mx-0"
+            initial={{opacity: 0, y: 20}}
+            animate={{opacity: 1, y: 0}}
+            transition={{duration: 0.8, delay: 0.4}}
+            >
+              Computer Engineering student at VJTI passionate about full-stack development and deep learning. Experienced in building scalable web applications and AI-driven projects, with strong problem-solving skills. Focused on creating impactful technology through clean and innovative solutions.
+            </motion.p>
+            <motion.div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-6"
+            initial={{opacity: 0}}
+            animate={{opacity: 1}}
+            transition={{duration: 0.8, delay: 0.8}}
+            >
+              <a href="#projects"
+              className="px-6 py-3 rounded-full font-medium text-lg text-white bg-gradient-to-r from-[#16d8d2] via-[#00bf8f] to-[#302b63]
+              shadow-lg hover:scale-105 transition-all"
+              >View My Work</a>
+              <a href="/Resume.pdf"
+              download="Resume.pdf"
+              className="px-6 py-3 rounded-full text-lg font-medium text-black bg-white hover:bg-gray-200 shadow-lg hover:scale-105 transition-all">
+                My Resume
+              </a>
+            </motion.div>
+            <div className="mt-10 flex gap-5 text-2xl md:text-3xl lg:text-4xl justify-center lg:justify-start">
+              {socials.map(({ Icon, label, link }) => (
+                <motion.a
+                  key={label}
+                  href={link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  variants={glowVariants}
+                  initial="initial"
+                  whileHover="hover"
+                  whileTap="tap"
+                  className="relative group text-gray-300"
+                >
+                  <Icon />
+
+                  <span className="absolute left-1/2 -translate-x-1/2 top-full mt-2 px-3 py-1 text-sm rounded-md bg-white text-black opacity-0 group-hover:opacity-100 transition-opacity duration-200 whitespace-nowrap pointer-events-none">
+                    {label}
+                  </span>
+                </motion.a>
+              ))}
+            </div>
           </div>
+        </div>
+        <div className="relative hidden lg:block">
+          <div
+          className="absolute top-1/2 -translate-y-1/2 pointer-events-none"
+          style={{right: "10px", width: "min(22vw, 410px)",height : "min(40vw, 760px)" , borderRadius: "50%",
+            filter: "blur(38px)", opacity: 0.32, background: "conic-gradient(from 0deg, #1cd8d2, #00bf8f, #302b63, #1cd8d2)"
+          }}
+          />
+          <motion.img src={avator} alt="Aryan Doshi" 
+          className="absolute top-1/2 -translate-y-1/2 object-contain select-none pointer-events-none"
+          style={{
+            right: "-30px", width: "min(45vw, 780px)", maxHeight: "90vh"
+          }}
+          initial={{opacity: 0, y: 40, scale: 0.98}}
+          animate={{opacity: 1, y: 0, scale: 1}}
+          transition={{duration: 0.8, delay: 0.2}}
+          />
         </div>
       </div>
     </section>
