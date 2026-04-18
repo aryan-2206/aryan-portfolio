@@ -59,7 +59,7 @@ export default function Navbar() {
 <div className="flex items-center space-x-2">
   <img src={Logo} alt="logo " className="w-8 h-8"/>
   <div className="text-2xl font-bold text-white hidden sm:block">
-    aryan
+    Aryan Doshi
   </div>
 </div>
 <div className="block lg: absolute lg: left-1/2 lg: transform lg: -translate-x-1/2">

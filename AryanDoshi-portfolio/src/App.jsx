@@ -16,7 +16,7 @@ export default function App() {
     // <div className="bg-black">
     <div className="relative gradient text-white">
       <CustomCursor></CustomCursor>
-      <ParticlesBackground></ParticlesBackground>
+      {/* <ParticlesBackground></ParticlesBackground> */}
       <Navbar/>
       <Home></Home>
       <About></About>
